@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Yatzy {
 
     protected int[] dices;
+
     public Yatzy(int d1, int d2, int d3, int d4, int d5)
     {
         dices = new int[5];
@@ -21,7 +22,7 @@ public class Yatzy {
         return total;
     }
 
-    public  int yatzy()
+    public int yatzy()
     {
         int a = repeatedNumber(5, dices,false);
         if(a != 0) {
@@ -60,78 +61,78 @@ public class Yatzy {
 
     }
 
-    public   int score_pair() {
+    public   int pairs() {
         return repeatedNumber(2, dices, false);
     }
 
-    public  int two_pair() {
+    public  int twoPairs() {
         return repeatedNumber(2, dices, true);
     }
 
-    public  int four_of_a_kind() {
+    public  int fourOfAKind() {
         return repeatedNumber(4, dices, false);
 
     }
 
-    public  int three_of_a_kind() {
+    public  int threeOfAKind() {
         return repeatedNumber(3, dices, false);
 
     }
 
-    public static int smallStraight(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-        if (tallies[0] == 1 &&
-            tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1)
-            return 15;
-        return 0;
+    public  int smallStraight() {
+       return straight(0,4,dices,15);
     }
 
-    public static int largeStraight(int d1, int d2, int d3, int d4, int d5) {
-        int[] tallies;
-        tallies = new int[6];
-        tallies[d1-1] += 1;
-        tallies[d2-1] += 1;
-        tallies[d3-1] += 1;
-        tallies[d4-1] += 1;
-        tallies[d5-1] += 1;
-        if (tallies[1] == 1 &&
-            tallies[2] == 1 &&
-            tallies[3] == 1 &&
-            tallies[4] == 1
-            && tallies[5] == 1)
-            return 20;
-        return 0;
+    public  int largeStraight() {
+        return straight(1,5,dices,20);
+
     }
 
     public  int fullHouse() {
+        {
+            boolean pair = false;
+            int i;
+            int pairAt = 0;
+            boolean threeOfAKind = false;
+            int threeOfAKindAt = 0;
+            int[] counts = new int[6];
 
-        int a = repeatedNumber(2, dices,false);
-        int b = repeatedNumber(3, dices,false);
-        if(a != 0 && b != 0)
-            return a+b;
-        else
-            return 0;
+            for(int dice : dices){
+                counts[dice-1] += 1;
+            }
+
+            for (i = 0; i != 6; i += 1)
+                if (counts[i] == 2) {
+                    pair = true;
+                    pairAt = i+1;
+                }
+
+            for (i = 0; i != 6; i += 1)
+                if (counts[i] == 3) {
+                    threeOfAKind = true;
+                    threeOfAKindAt = i+1;
+                }
+
+            if (pair && threeOfAKind){
+                return pairAt * 2 + threeOfAKindAt * 3;
+            }
+            else{
+                return 0;
+            }
+        }
     }
 
     private int numberOf(int value){
         int count = 0;
         for(int dice : dices)
         {
-            if(dice == value) count+=value;
+            if(dice == value) count += value;
         }
         return count;
     }
 
-    private int repeatedNumber(int times, int[] dices, boolean doubles) {
+    private int repeatedNumber(int times, int[] dices, boolean doubles)
+    {
         int[] counts = new int[6];
         int score = 0;
         for(int dice : dices)
@@ -143,6 +144,20 @@ public class Yatzy {
             }
         }
         return score * times;
+    }
+
+    private int straight(int start, int end, int[] dices, int score)
+    {
+        int[] counts = new int[6];
+        for(int dice : dices)
+            counts[dice-1] += 1;
+        for(int i=start; i<end; i++)
+        {
+            if(counts[i] != 1){
+                return 0;
+            }
+        }
+        return score;
     }
 }
 

@@ -13,12 +13,12 @@ public class Score {
             case FOURS -> dice.fours();
             case FIVES -> dice.fives();
             case SIXES -> dice.sixes();
-            case PAIR -> dice.score_pair();
-            case TWO_PAIRS -> dice.two_pair();
-            case THREE_OF_A_KIND -> dice.three_of_a_kind();
-            case FOUR_OF_A_KIND -> dice.four_of_a_kind();
-            case SMALL_STRAIGHT -> Yatzy.smallStraight(d1, d2, d3, d4, d5);
-            case LARGE_STRAIGHT -> Yatzy.largeStraight(d1, d2, d3, d4, d5);
+            case PAIR -> dice.pairs();
+            case TWO_PAIRS -> dice.twoPairs();
+            case THREE_OF_A_KIND -> dice.threeOfAKind();
+            case FOUR_OF_A_KIND -> dice.fourOfAKind();
+            case SMALL_STRAIGHT -> dice.smallStraight();
+            case LARGE_STRAIGHT -> dice.largeStraight();
             case FULL_HOUSE -> dice.fullHouse();
             default -> throw new IllegalArgumentException("Category not supported");
         };

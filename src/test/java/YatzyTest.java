@@ -110,28 +110,24 @@ public class YatzyTest {
         assertEquals(0, new Yatzy(2,3,4,5,6).fullHouse());
     }
 
-    // Test case could be split into many if needed. Only some cases are covered for the purpose of example.
     @Test
-    public void scoreGame(){
-        // Test score, category: YATZY
-        assertEquals(50, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,1));
-        assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,6));
-
-        // Test score, category: CHANCE
-        assertEquals(10, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,3,4,1,1,1));
-        assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,1,1,1,1,1));
-
-        // Test score, category: ONES
-        assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.ONES,3,4,1,1,1));
-        assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.ONES,1,1,1,1,1));
-
-        // Test score, category: TWOS
-        assertEquals(6, ScoreYatzy.diceScores(CategoryYatzy.TWOS,3,2,2,2,1));
-        assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.TWOS,1,1,1,1,1));
-
-        // Test score, category: THREES
-        assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,2,2,2,1));
-        assertEquals(9, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,1,3,3,1));
+    public void categoryScore() {
+        ScoreYatzy scoreYatzy = new ScoreYatzy();
+        assertEquals(50, scoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,1));
+        assertEquals(10, scoreYatzy.diceScores(CategoryYatzy.CHANCE,3,4,1,1,1));
+        assertEquals(3, scoreYatzy.diceScores(CategoryYatzy.ONES,3,4,1,1,1));
+        assertEquals(6, scoreYatzy.diceScores(CategoryYatzy.TWOS,3,2,2,2,1));
+        assertEquals(3, scoreYatzy.diceScores(CategoryYatzy.THREES,3,2,2,2,1));
+        assertEquals(12, scoreYatzy.diceScores(CategoryYatzy.FOURS,4,4,4,2,1));
+        assertEquals(10, scoreYatzy.diceScores(CategoryYatzy.FIVES,5,5,1,1,1));
+        assertEquals(18, scoreYatzy.diceScores(CategoryYatzy.SIXES,6,4,6,6,1));
+        assertEquals(6, scoreYatzy.diceScores(CategoryYatzy.PAIR,3,4,1,3,1));
+        assertEquals(10, scoreYatzy.diceScores(CategoryYatzy.TWO_PAIRS,3,2,2,3,1));
+        assertEquals(6, scoreYatzy.diceScores(CategoryYatzy.THREE_OF_A_KIND,3,2,2,2,1));
+        assertEquals(8, scoreYatzy.diceScores(CategoryYatzy.FOUR_OF_A_KIND,2,2,2,2,1));
+        assertEquals(15, scoreYatzy.diceScores(CategoryYatzy.SMALL_STRAIGHT,5,4,3,1,2));
+        assertEquals(20, scoreYatzy.diceScores(CategoryYatzy.LARGE_STRAIGHT,3,2,4,5,6));
+        assertEquals(12, scoreYatzy.diceScores(CategoryYatzy.FULL_HOUSE,3,2,2,2,3));
     }
 
 }

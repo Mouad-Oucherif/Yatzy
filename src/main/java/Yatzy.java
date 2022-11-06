@@ -74,13 +74,13 @@ public class Yatzy {
         return repeatedNumber(2, dices, true);
     }
 
+    public  int threeOfAKind() {
+        return repeatedNumber(3, dices, false);
+    }
+
     public  int fourOfAKind() {
         return repeatedNumber(4, dices, false);
 
-    }
-
-    public  int threeOfAKind() {
-        return repeatedNumber(3, dices, false);
     }
 
     public  int smallStraight() {

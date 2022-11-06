@@ -1,7 +1,5 @@
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class YatzyTest {
 
@@ -112,20 +110,25 @@ public class YatzyTest {
         assertEquals(0, new Yatzy(2,3,4,5,6).fullHouse());
     }
 
+    // Test case could be split into many if needed. Only some cases are covered for the purpose of example.
     @Test
     public void scoreGame(){
         // Test score, category: YATZY
         assertEquals(50, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,1));
         assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,6));
+
         // Test score, category: CHANCE
         assertEquals(10, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,3,4,1,1,1));
         assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,1,1,1,1,1));
+
         // Test score, category: ONES
         assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.ONES,3,4,1,1,1));
         assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.ONES,1,1,1,1,1));
+
         // Test score, category: TWOS
         assertEquals(6, ScoreYatzy.diceScores(CategoryYatzy.TWOS,3,2,2,2,1));
         assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.TWOS,1,1,1,1,1));
+
         // Test score, category: THREES
         assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,2,2,2,1));
         assertEquals(9, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,1,3,3,1));

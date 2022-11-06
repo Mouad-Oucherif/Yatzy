@@ -1,3 +1,5 @@
+/** Enum with all the Yatzy categories
+ */
 public enum CategoryYatzy {
     CHANCE,
     YATZY,

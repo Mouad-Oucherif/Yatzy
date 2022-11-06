@@ -115,20 +115,20 @@ public class YatzyTest {
     @Test
     public void scoreGame(){
         // Test score, category: YATZY
-        assertEquals(50, Score.diceScores(CategoryYatzy.YATZY,1,1,1,1,1));
-        assertEquals(0, Score.diceScores(CategoryYatzy.YATZY,1,1,1,1,6));
+        assertEquals(50, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,1));
+        assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.YATZY,1,1,1,1,6));
         // Test score, category: CHANCE
-        assertEquals(10, Score.diceScores(CategoryYatzy.CHANCE,3,4,1,1,1));
-        assertEquals(5, Score.diceScores(CategoryYatzy.CHANCE,1,1,1,1,1));
+        assertEquals(10, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,3,4,1,1,1));
+        assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.CHANCE,1,1,1,1,1));
         // Test score, category: ONES
-        assertEquals(3, Score.diceScores(CategoryYatzy.ONES,3,4,1,1,1));
-        assertEquals(5, Score.diceScores(CategoryYatzy.ONES,1,1,1,1,1));
+        assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.ONES,3,4,1,1,1));
+        assertEquals(5, ScoreYatzy.diceScores(CategoryYatzy.ONES,1,1,1,1,1));
         // Test score, category: TWOS
-        assertEquals(6, Score.diceScores(CategoryYatzy.TWOS,3,2,2,2,1));
-        assertEquals(0, Score.diceScores(CategoryYatzy.TWOS,1,1,1,1,1));
+        assertEquals(6, ScoreYatzy.diceScores(CategoryYatzy.TWOS,3,2,2,2,1));
+        assertEquals(0, ScoreYatzy.diceScores(CategoryYatzy.TWOS,1,1,1,1,1));
         // Test score, category: THREES
-        assertEquals(3, Score.diceScores(CategoryYatzy.THREES,3,2,2,2,1));
-        assertEquals(9, Score.diceScores(CategoryYatzy.THREES,3,1,3,3,1));
+        assertEquals(3, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,2,2,2,1));
+        assertEquals(9, ScoreYatzy.diceScores(CategoryYatzy.THREES,3,1,3,3,1));
     }
 
 }

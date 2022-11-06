@@ -1,5 +1,6 @@
-public class Score {
-
+/** Class for the Yatzy score computing
+ */
+public class ScoreYatzy {
 
     public static int diceScores(CategoryYatzy category, int d1, int d2, int d3, int d4, int d5)
     {
@@ -24,12 +25,9 @@ public class Score {
         };
     }
 
+    // Util method which is not used in the task but might be needed to display the results
     public static void displayScore(CategoryYatzy category, int d1, int d2, int d3, int d4, int d5){
-        int score = Score.diceScores(category,  d1,  d2,  d3,  d4,  d5);
+        int score = ScoreYatzy.diceScores(category,  d1,  d2,  d3,  d4,  d5);
         System.out.printf("Dices: %d, %d, %d, %d, %d \nCategory: %s \nScore: %d", d1, d2 , d3, d4, d5, category, score);
     }
-
-
 }
-
-
